@@ -20,6 +20,12 @@
   @return exponent($base, $exponent);
 }
 
+@mixin box-sizing($args...) {
+    -webkit-box-sizing: $args;
+    -moz-box-sizing: $args;
+    box-sizing: $args;
+}
+
 // Transition mixins
 @mixin transition($args...) {
   -webkit-transition: $args;

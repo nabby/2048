@@ -8,7 +8,11 @@ html, body {
   font-size: 18px; }
 
 body {
-  margin: 80px 0; }
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden; }
 
 .heading:after {
   content: "";
@@ -118,9 +122,26 @@ hr {
   margin-top: 20px;
   margin-bottom: 30px; }
 
+.outer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto; }
+
 .container {
   width: 500px;
-  margin: 0 auto; }
+  margin: 80px auto; }
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  background: #fff;
+  z-index: 50; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -490,12 +511,17 @@ hr {
 .game-explanation {
   margin-top: 50px; }
 
+.game-info .infotab {
+  display: none; }
+
 @media screen and (max-width: 520px) {
   html, body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 15px; }
 
   body {
-    margin: 20px 0;
     padding: 0 20px; }
 
   h1.title {
@@ -504,7 +530,7 @@ hr {
 
   .container {
     width: 280px;
-    margin: 0 auto; }
+    margin: 20px auto 60px; }
 
   .score-container, .best-container {
     margin-top: 0;
@@ -672,6 +698,35 @@ hr {
 
   .game-container {
     margin-top: 20px; }
+
+  .game-info {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+    top: 100%;
+    margin-top: -40px;
+    z-index: 100;
+    background: rgba(238, 228, 218, 0.9);
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+    .game-info.open {
+      top: 0;
+      margin-top: 0; }
+      .game-info.open .infotab:before {
+        content: '\25BE'; }
+    .game-info .infotab {
+      display: block;
+      cursor: pointer;
+      line-height: 20px;
+      padding: 10px 20px; }
+      .game-info .infotab:before {
+        content: '\25B8';
+        margin-right: 3px; }
+    .game-info p {
+      margin: 0 20px; }
 
   .tile .tile-inner {
     font-size: 35px; }

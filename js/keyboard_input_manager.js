@@ -91,6 +91,17 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+
+  // misc. UI stuff  
+  var infotab = document.querySelector(".infotab");
+  infotab.addEventListener("click", function(event) {
+  	var t = event.currentTarget.parentNode;
+  	if (t.className.indexOf(' open') > 0)
+  		t.className = t.className.substr(0, t.className.length-5);
+  	else
+  		t.className = t.className + ' open';
+  });
+  
 };
 
 KeyboardInputManager.prototype.restart = function (event) {
