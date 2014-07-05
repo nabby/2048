@@ -101,6 +101,21 @@ KeyboardInputManager.prototype.listen = function () {
   	else
   		t.className = t.className + ' open';
   });
+
+  var autoplay = document.querySelector(".autoplay");
+  var ap_cnt = 0;
+  var ap_moves = 20;
+  autoplay.addEventListener("click", function(event) {
+  	if (ap_cnt) return;
+  	var ap_interval = setInterval(function() {
+		var t = Math.floor(Math.random()*4);
+		self.emit("move", t);
+		if (++ap_cnt == ap_moves) {
+			ap_cnt = 0;
+			clearInterval(ap_interval);
+		}	
+	}, 100);
+  });
   
 };
 

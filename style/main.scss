@@ -309,6 +309,9 @@ hr {
   }
 
   .tile {
+  	// HACK: set translateZ so GPU kicks in yo
+	@include transform(translateZ(0));
+
     &, .tile-inner {
       width: ceil($tile-size);
       height: ceil($tile-size);
